@@ -26,6 +26,8 @@ class HitAndBlowGame:
         print(f"cpuの数字: {self.cpu_num}")
 
     def player_input(self):
+        """プレイヤーの数字入力
+        """
         val = input("数字を入力してください: ")
 
         return val
@@ -73,22 +75,38 @@ class HitAndBlowGame:
                 hit += 1
             if re == HitAndBlowGame.HitBlowResult.BLOW:
                 blow += 1
-                
+
         return hit, blow
     
     def game_judge(self, hit):
+        """ゲームが終了したかどうかの判定
+        """
         if hit == 3:
             self.is_game_continue = False
         self.turn += 1
 
 
     def hit(self, split_i_num, split_num, result):
+        """ヒットしているかの判定
+
+        Args:
+            split_i_num (list): 入力した数字を1文字ごとにリストに格納したもの
+            split_num (list): 正解を1文字ごとにリストに格納したもの
+            result (list): 結果を格納するリスト
+        """
         for i in range(3):
             if split_num[i] == split_i_num[i]:
                 result[i] = (HitAndBlowGame.HitBlowResult.HIT)
                 continue
     
     def blow(self, split_i_num, split_num, result):
+        """ブローしているかの判定
+
+        Args:
+            split_i_num (list): 入力した数字を1文字ごとにリストに格納したもの
+            split_num (list): 正解を1文字ごとにリストに格納したもの
+            result (list): 結果を格納するリスト
+        """
         for i in range(3):
             if result[i] == HitAndBlowGame.HitBlowResult.HIT:
                 continue
