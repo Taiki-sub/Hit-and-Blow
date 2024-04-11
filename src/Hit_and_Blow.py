@@ -97,7 +97,6 @@ class HitAndBlowGame:
         for i in range(3):
             if split_num[i] == split_i_num[i]:
                 result[i] = (HitAndBlowGame.HitBlowResult.HIT)
-                continue
     
     def blow(self, split_i_num, split_num, result):
         """ブローしているかの判定
@@ -110,6 +109,6 @@ class HitAndBlowGame:
         for i in range(3):
             if result[i] == HitAndBlowGame.HitBlowResult.HIT:
                 continue
-            for j in range(3):
+            for j in range(i,3):
                 if split_num[i] == split_i_num[j]:
-                    result[i] == HitAndBlowGame.HitBlowResult.BLOW
+                    result[i] = HitAndBlowGame.HitBlowResult.BLOW
