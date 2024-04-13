@@ -28,8 +28,13 @@ class HitAndBlowGame:
     def player_input(self):
         """プレイヤーの数字入力
         """
-        val = input("数字を入力してください: ")
-
+        while(True):
+            val = input("数字を入力してください: ")
+            if(val != ''):
+                if(int(val) > 100):
+                    break
+            print("３桁の数字を入力してください")
+            
         return val
 
     def cpu_input(self):
