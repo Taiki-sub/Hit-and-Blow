@@ -1,4 +1,5 @@
 import random
+import re
 from enum import Enum, auto
 class HitAndBlowGame:
 
@@ -28,11 +29,11 @@ class HitAndBlowGame:
     def player_input(self):
         """プレイヤーの数字入力
         """
+        pattern = r'^\d{3}$'
         while(True):
             val = input("数字を入力してください: ")
-            if(val != ''):
-                if(int(val) > 100):
-                    break
+            if val.isdigit() and len(val) == 3:
+                break
             print("３桁の数字を入力してください")
             
         return val
