@@ -1,0 +1,22 @@
+.digit-box {
+    width: 80px;
+    height: 80px;
+    border: 2px solid black;
+    text-align: center;
+    font-size: 24px;
+    margin: 25px;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+input[type="submit"] {
+    vertical-align: middle;
+    height: 50px;
+    margin: 40px;
+    font-size: 16px;
+    cursor: pointer;
+}

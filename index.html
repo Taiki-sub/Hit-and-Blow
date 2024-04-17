@@ -4,19 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <title>HTML Sample</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="index.css">
     <script type="text/javascript" src="sample.js"></script>
+    <!--<meta http-equiv="refresh" content="5">-->
 </head>
 
 <body>
-    <div class="header">Header領域</div>
-    <div class="main">
-        <h1>見出し</h1>
+    <div class="header">
+        <h1>Hit & Blow</h1>
     </div>
-    <div class="footer">
-        <span>Footer領域</span>
-        <a href="#">リンク</a>
+    <div class="your-number">
+        <h3>Your Number</h3>
     </div>
+    <form action="#" method="post">
+        <input type="text" name="first-digit" maxlength="1" class="digit-box" required>
+        <input type="text" name="second-digit" maxlength="1" class="digit-box" required>
+        <input type="text" name="third-digit" maxlength="1" class="digit-box" required>
+        <input type="submit" value="送信">
+    </form>
 </body>
 
 </html>
