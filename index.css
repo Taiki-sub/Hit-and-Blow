@@ -1,0 +1,54 @@
+h1,
+h3 {
+    text-align: center;
+}
+
+input.btn-border {
+    border-radius: 10px;
+    color: white;
+    background: black;
+}
+
+input.btn-border:hover {
+    border-radius: 10px;
+    color: black;
+    background: white;
+}
+
+.digit-box {
+    width: 80px;
+    height: 80px;
+    border: 2px solid black;
+    text-align: center;
+    font-size: 24px;
+    margin: 25px;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+input[type="submit"] {
+    vertical-align: middle;
+    height: 50px;
+    margin: 40px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+table {
+    width: 100%;
+    margin: 10 auto;
+}
+
+th,
+td {
+    text-align: center;
+}
+
+th {
+    background-color: gray;
+    color: white;
+}
