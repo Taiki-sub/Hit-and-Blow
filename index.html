@@ -3,30 +3,49 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>HTML Sample</title>
-    <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
-    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
-    <!--<meta http-equiv="refresh" content="5">-->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
+    <link rel="stylesheet" href="./assets/css/examples.css" />
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+    <style>
+        #loading {
+            outline: none;
+            border: none;
+            background: transparent
+        }
+    </style>
+    <script type="module">
+        const loading = document.getElementById('loading');
+        addEventListener('py:ready', () => loading.close());
+        loading.showModal();
+    </script>
+
+    <title>HIT-and-BLOW</title>
 </head>
 
 <body>
+    <script type="py" src="./test.py"></script> 
+    <dialog id="loading">
+        <h1>Loading...</h1>
+    </dialog>
     <div class="header">
         <h1>Hit & Blow</h1>
     </div>
     <div class="your-number">
         <h3>Your Number</h3>
     </div>
-    <form action="#" method="post">
-        <input type="text" name="first-digit" maxlength="1" class="digit-box" required>
-        <input type="text" name="second-digit" maxlength="1" class="digit-box" required>
-        <input type="text" name="third-digit" maxlength="1" class="digit-box" required>
-        <input class="btn btn-border" type="submit" value="  決定  ">
+    <form id="inputForm">
+        <input type="text" id="first-digit" maxlength="1" class="digit-box" required>
+        <input type="text" id="second-digit" maxlength="1" class="digit-box" required>
+        <input type="text" id="third-digit" maxlength="1" class="digit-box" required>
+        <input class="btn btn-border" type="submit" id = 'aaa' value="  決定  ">
     </form>
+    <input id="input_test" class="border">
+    <button id="btn" pys-onClick="hoge">テスト</button>
     <table>
         <tr>
             <td>
-                <table border>
+                <table border id="player-table">
                     <caption>
                         <h3>YOU</h3>
                     </caption>
@@ -48,7 +67,7 @@
                 </table>
             </td>
             <td>
-                <table border>
+                <table border id="cpu-table">
                     <caption>
                         <h3>CPU</h3>
                     </caption>
@@ -71,7 +90,8 @@
             </td>
         </tr>
     </table>
-    <h1>test</h1>
+    <button id="addContentBtn">新しい内容を追加</button>
+    <py-terminal id="terminal"></py-terminal>
 </body>
 
 </html>
