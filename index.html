@@ -19,79 +19,65 @@
         addEventListener('py:ready', () => loading.close());
         loading.showModal();
     </script>
-
+    <py-config>
+        [[fetch]]
+        from = './'
+        files = ['Hit_and_Blow.py']
+    </py-config>
     <title>HIT-and-BLOW</title>
 </head>
 
 <body>
-    <script type="py" src="./test.py"></script> 
+    <py-script>
+        import Hit_and_Blow
+    </py-script> 
+    <script type="py" src="./main.py"></script> 
     <dialog id="loading">
         <h1>Loading...</h1>
     </dialog>
     <div class="header">
         <h1>Hit & Blow</h1>
     </div>
-    <div class="your-number">
-        <h3>Your Number</h3>
+    <div class="your-number" >
+        <h3 id = "your-number">Your Number</h3>
     </div>
     <form id="inputForm">
         <input type="text" id="first-digit" maxlength="1" class="digit-box" required>
         <input type="text" id="second-digit" maxlength="1" class="digit-box" required>
         <input type="text" id="third-digit" maxlength="1" class="digit-box" required>
-        <input class="btn btn-border" type="submit" id = 'aaa' value="  決定  ">
+        <input class="btn btn-border" type="submit" value="  決定  ">
     </form>
-    <input id="input_test" class="border">
-    <button id="btn" pys-onClick="hoge">テスト</button>
+    <h1 id="result"></h1>
     <table>
         <tr>
             <td>
                 <table border id="player-table">
                     <caption>
-                        <h3>YOU</h3>
+                        <h1>YOU</h1>
                     </caption>
                     <tr>
                         <th>Guess</th>
                         <th>Hit</th>
                         <th>Blow</th>
-                    </tr>
-                    <tr>
-                        <td>a</td>
-                        <td>b</td>
-                        <td>c</td>
-                    </tr>
-                    <tr>
-                        <td>a</td>
-                        <td>b</td>
-                        <td>c</td>
                     </tr>
                 </table>
             </td>
             <td>
                 <table border id="cpu-table">
                     <caption>
-                        <h3>CPU</h3>
+                        <h1>CPU</h1>
                     </caption>
                     <tr>
                         <th>Guess</th>
                         <th>Hit</th>
                         <th>Blow</th>
                     </tr>
-                    <tr>
-                        <td>a</td>
-                        <td>b</td>
-                        <td>c</td>
-                    </tr>
-                    <tr>
-                        <td>a</td>
-                        <td>b</td>
-                        <td>c</td>
-                    </tr>
                 </table>
             </td>
         </tr>
     </table>
-    <button id="addContentBtn">新しい内容を追加</button>
-    <py-terminal id="terminal"></py-terminal>
+    <br>
+    <button class="btn btn-border" id="newGameBtn">New Game</button>
 </body>
 
 </html>

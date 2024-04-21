@@ -3,6 +3,7 @@ def main():
     HB = Hit_and_Blow.HitAndBlowGame()
     HB.game_start()
     
+    """
     while True:
         #自分の入力
         p_val = HB.player_input()
@@ -19,6 +20,8 @@ def main():
         HB.game_judge(c_hit)
         if HB.is_game_continue == False:
             break
+    """
+    
 
 
 if __name__ == "__main__":

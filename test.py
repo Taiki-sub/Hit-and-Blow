@@ -78,11 +78,8 @@ def toggle_terminal(self, event):
         self.console.parent._js.removeAttribute("hidden")
     else:
         self.console.parent._js.setAttribute("hidden", "hidden")
-        
-#TODO:ヒント機能つけたい
-#TODO:ターミナル実装
-#TODO:デザインこだわる
-#TODO:ゲーム続行機能
+
+
 
 """
 * 実装順番

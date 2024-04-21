@@ -3,13 +3,14 @@ h3 {
     text-align: center;
 }
 
-input.btn-border {
+.btn-border {
+    font-size: larger;
     border-radius: 10px;
     color: white;
     background: black;
 }
 
-input.btn-border:hover {
+.btn-border:hover {
     border-radius: 10px;
     color: black;
     background: white;
