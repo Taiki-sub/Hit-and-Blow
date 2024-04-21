@@ -18,8 +18,6 @@ class HitAndBlowGame:
         #変数の宣言
         self.turn = 1
         self.cpu_num = ""
-        self.player_input_list = []
-        self.cpu_input_list = []
         self.is_game_continue = True
 
         #HTMLの要素を取得
@@ -43,7 +41,8 @@ class HitAndBlowGame:
         self.clear_input_form()
         self.set_player_num()
         self.result.innerText = ""
-        self.cpu_num = self.cpu_input()
+        # self.cpu_num = self.cpu_input()
+        self.cpu_num = 336
         self.is_game_continue = True
         print(f"自分の数字: {self.player_num}")
         print(f"cpuの数字: {self.cpu_num}")
@@ -53,7 +52,6 @@ class HitAndBlowGame:
         フォームを入力するたびに走る関数
         """
         event.preventDefault()
-
         #入力を受け取る
         first_digit = int(document.getElementById('first-digit').value)
         second_digit = int(document.getElementById('second-digit').value)
@@ -89,7 +87,7 @@ class HitAndBlowGame:
         #CPUの入力を受け取る
         cpu_input = self.cpu_input()
 
-        #プレイヤーが入力した数字のHit数とBLow数を判定
+        #cpuが入力した数字のHit数とBLow数を判定
         c_hit, c_blow = self.HB_judge(cpu_input)
 
         #CPUの入力とHit数とBLow数をテーブルに追加
@@ -124,22 +122,11 @@ class HitAndBlowGame:
             val = ""
         return val
 
-    def add_list(self, input_num):
-        """入力した数字をリストに格納
-
-        Args:
-            input_num (str): 入力した数字
-        """
-        if self.turn % 2 == 1:
-            self.player_input_list.append[input_num]
-        else:
-            self.cpu_input_list.append[input_num]
-
     def HB_judge(self, input_num):
         """入力した数字のHとBを返す
 
         Args:
-            input_num (_type_): _description_
+            input_num (num): 入力した数値
         """
         hit = 0
         blow = 0
@@ -160,6 +147,7 @@ class HitAndBlowGame:
             if re == HitAndBlowGame.HitBlowResult.BLOW:
                 blow += 1
 
+        print(result)
         return hit, blow
     
     def game_judge(self, hit):
@@ -190,12 +178,17 @@ class HitAndBlowGame:
             split_num (list): 正解を1文字ごとにリストに格納したもの
             result (list): 結果を格納するリスト
         """
+        used_indices = []
         for i in range(3):
             if result[i] == HitAndBlowGame.HitBlowResult.HIT:
+                used_indices.append(i) 
                 continue
-            for j in range(i,3):
+            for j in range(3):
+                if j in used_indices:
+                    continue 
                 if split_num[i] == split_i_num[j]:
                     result[i] = HitAndBlowGame.HitBlowResult.BLOW
+                    used_indices.append(j)
 
     def clear_table(self):
         """テーブルをクリアする
