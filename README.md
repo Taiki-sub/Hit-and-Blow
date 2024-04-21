@@ -31,7 +31,7 @@ git clone url
 3. 手元で編集した後に，更新を行う
 4. 下のコマンドでサーバーを立ち上げる
 ```
-git clone url
+python3 -m http.server                          
 ```
 5. http://localhost:8000/
 にアクセスすると確認できます！
