@@ -2,10 +2,8 @@ import random
 import re
 import time
 from enum import Enum, auto
-from js import document
+from js import document, prompt, alert
 from pyodide.ffi import create_proxy
-from js import prompt
-from js import alert
 
 class HitAndBlowGame:
 
