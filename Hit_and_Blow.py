@@ -41,8 +41,7 @@ class HitAndBlowGame:
         self.clear_input_form()
         self.set_player_num()
         self.result.innerText = ""
-        # self.cpu_num = self.cpu_input()
-        self.cpu_num = 336
+        self.cpu_num = self.cpu_input()
         self.is_game_continue = True
         print(f"自分の数字: {self.player_num}")
         print(f"cpuの数字: {self.cpu_num}")
@@ -147,7 +146,6 @@ class HitAndBlowGame:
             if re == HitAndBlowGame.HitBlowResult.BLOW:
                 blow += 1
 
-        print(result)
         return hit, blow
     
     def game_judge(self, hit):
