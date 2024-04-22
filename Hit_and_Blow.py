@@ -60,10 +60,7 @@ class HitAndBlowGame:
             return
         player_input = first_digit * 100 + second_digit * 10 + third_digit
 
-        #フォームをクリアする
-        document.getElementById('first-digit').value = ''
-        document.getElementById('second-digit').value = ''
-        document.getElementById('third-digit').value = ''
+        self.clear_input_form()
 
         #プレイヤーが入力した数字のHit数とBLow数を判定
         p_hit, p_blow = self.HB_judge(player_input)
