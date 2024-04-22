@@ -22,7 +22,7 @@ class HitAndBlowGame:
 
         #HTMLの要素を取得
         self.player_table = document.getElementById('player-table')
-        self.cpu_table = document.getElementById('cpu-table')
+        self.a = document.getElementById('cpu-table')
         self.input_form = document.getElementById('inputForm')
         self.result = document.getElementById('result')
         self.new_game_button = document.getElementById('newGameBtn')
@@ -81,7 +81,7 @@ class HitAndBlowGame:
         #プレイヤーが勝利したかどうかを判定
         self.game_judge(p_hit)
         if self.is_game_continue == False:
-            self.result.innerText = "You Win!"
+            self.result.innerText = "You Lose"
             self.disable_input_form()
 
         #CPUが考えている感じにするため、1秒待つ
@@ -94,7 +94,7 @@ class HitAndBlowGame:
         c_hit, c_blow = self.HB_judge(cpu_input)
 
         #CPUの入力とHit数とBLow数をテーブルに追加
-        new_row = self.cpu_table.insertRow(-1)
+        new_row = self.a.insertRow(-1)
         new_row.insertCell(0).textContent = cpu_input
         new_row.insertCell(1).textContent = c_hit
         new_row.insertCell(2).textContent = c_blow
@@ -146,9 +146,9 @@ class HitAndBlowGame:
 
         for re in result:
             if re == HitAndBlowGame.HitBlowResult.HIT:
-                hit += 1
-            if re == HitAndBlowGame.HitBlowResult.BLOW:
                 blow += 1
+            if re == HitAndBlowGame.HitBlowResult.BLOW:
+                hit += 1
 
         return hit, blow
     
@@ -291,8 +291,7 @@ class HitAndBlowGame:
         """３桁のうちランダムで一つの数字がわかる
         """
 
-        digit = int(random.randint(0, 3))
-        alert(f"CPUの数字の{digit + 1}番目の数字は{self.cpu_num[digit]}です")
+        alert("自分で実装してね")
 
         self.turn += 1
 
@@ -300,8 +299,7 @@ class HitAndBlowGame:
         new_row = self.player_table.insertRow(-1)
         new_row.insertCell(0).textContent = 'shot'
         new_row.insertCell(1).textContent = ''
-        new_row.insertCell(2).textContent = f"{digit + 1}番目:{self.cpu_num[digit]}"
-
+        new_row.insertCell(2).textContent = ""
         #CPUが考えている感じにするため、1秒待つ
         time.sleep(1)
 
@@ -312,7 +310,7 @@ class HitAndBlowGame:
         c_hit, c_blow = self.HB_judge(cpu_input)
 
         #CPUの入力とHit数とBLow数をテーブルに追加
-        new_row = self.cpu_table.insertRow(-1)
+        new_row = self.a.insertRow(-1)
         new_row.insertCell(0).textContent = cpu_input
         new_row.insertCell(1).textContent = c_hit
         new_row.insertCell(2).textContent = c_blow
@@ -330,18 +328,14 @@ class HitAndBlowGame:
     def highLow(self,event=None):
         """3桁の数字のうち、一番大きい数字と一番小さい数字を教える
         """
-        highLow = ''
-        for i in range(3):
-            if int(self.cpu_num[i]) <  5:
-                highLow += 'low'
-            else:
-                highLow += 'high'
         
+        alert("自分で実装してね")
+
         #プレイヤーの入力とHit数とBLow数をテーブルに追加
         new_row = self.player_table.insertRow(-1)
         new_row.insertCell(0).textContent = 'HighLow'
         new_row.insertCell(1).textContent = ''
-        new_row.insertCell(2).textContent = f"{highLow}"
+        new_row.insertCell(2).textContent = ""
 
         self.turn += 1
 
@@ -355,7 +349,7 @@ class HitAndBlowGame:
         c_hit, c_blow = self.HB_judge(cpu_input)
 
         #CPUの入力とHit数とBLow数をテーブルに追加
-        new_row = self.cpu_table.insertRow(-1)
+        new_row = self.a.insertRow(-1)
         new_row.insertCell(0).textContent = cpu_input
         new_row.insertCell(1).textContent = c_hit
         new_row.insertCell(2).textContent = c_blow
@@ -369,8 +363,3 @@ class HitAndBlowGame:
             elif (self.result.innerText == ""):#プレイヤーが3Hitしていない場合、CPUの勝ち
                 self.result.innerText = "You Lose!"
             self.disable_input_form()#これ以上入力させないために、フォームを無効にする
-
-#TODO:ヒント機能つけたい
-#TODO:ターミナル実装
-#TODO:デザインこだわる
-#TODO:命名規則を統一する
